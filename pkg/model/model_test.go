@@ -15,11 +15,11 @@ type modelSuite struct {
 const (
 	rate = 0.05
 	//start                         = "2020-11-05T00:00:01Z"
-	borrowerAmount                = "219.356949"
+	borrowerAmount                = "219.36"
 	initialOutstandingPrincipal   = "5000"
-	interest                      = "20.833333"
-	principal                     = "198.523616"
-	remainingOutstandingPrincipal = "4801.476384"
+	interest                      = "20.83"
+	principal                     = "198.53"
+	remainingOutstandingPrincipal = "4801.47"
 )
 
 func TestRunModelSuite(t *testing.T) {

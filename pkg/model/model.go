@@ -62,11 +62,11 @@ func (p *BorrowerPayment) getAnnuity(rate, initialOutstandingPrincipal float64, 
 	r := rate / (12 * 100.0)
 	emi := (initialOutstandingPrincipal * r * math.Pow(1+r, float64(numberOfMonths))) / (math.Pow(1+r, float64(numberOfMonths)) - 1)
 
-	return fmt.Sprintf("%f", emi)
+	return fmt.Sprintf("%.2f", emi)
 }
 
 func (p *BorrowerPayment) calculateInterest(rate, initialOutstandingPrincipal float64) {
-	p.Interest = fmt.Sprintf("%f", (rate*daysInMonth*initialOutstandingPrincipal)/daysInYear)
+	p.Interest = fmt.Sprintf("%.2f", (rate*daysInMonth*initialOutstandingPrincipal)/daysInYear)
 }
 
 func (p *BorrowerPayment) calculatePrincipal(rate float64) error {
@@ -93,7 +93,7 @@ func (p *BorrowerPayment) calculatePrincipal(rate float64) error {
 		// Last month Annuity would be recalculated based on current outstanding Principal
 		p.Amount = p.getAnnuity(rate, principal, 1)
 	}
-	p.Principal = fmt.Sprintf("%f", principal)
+	p.Principal = fmt.Sprintf("%.2f", principal)
 
 	return nil
 }
@@ -103,7 +103,7 @@ func (p *BorrowerPayment) calculateRemainingOutstandingPrincipal(initialOutstand
 	if err != nil {
 		return err
 	}
-	p.RemainingOutstandingPrincipal = fmt.Sprintf("%f", initialOutstandingPrincipal-principal)
+	p.RemainingOutstandingPrincipal = fmt.Sprintf("%.2f", initialOutstandingPrincipal-principal)
 
 	return nil
 }
